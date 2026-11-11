@@ -1,0 +1,149 @@
+{
+  "map": {
+    "width": 20000,
+    "height": 15000,
+    "frameWidth": 6,
+    "minZoom": -4,
+    "maxZoom": 2
+  },
+  "branding": {
+    "logo": "assets/icons/brand.svg"
+  },
+  "theme": {
+    "colors": {
+      "ink": "#292821",
+      "muted": "#777466",
+      "paper": "#f3f0e7",
+      "panel": "#faf8f1",
+      "line": "#ded9ca",
+      "accent": "#8b6840",
+      "dark": "#292d27",
+      "dark-line": "#45483f",
+      "header-text": "#f4f0e5",
+      "header-muted": "#c5c1b5",
+      "header-mark": "#d7c39d",
+      "map-bg": "#c7cfc4",
+      "map-surface": "#f8f6eeed",
+      "map-border": "#d8d1c1",
+      "map-text": "#625d51",
+      "hover": "#eee9dc",
+      "filter-active-bg": "#e9e1d1",
+      "filter-active-line": "#c9b99d",
+      "filter-active-text": "#4d402e",
+      "icon-bg": "#f8f4e9",
+      "icon-border": "#d8d0bf",
+      "marker-bg": "#34382f",
+      "marker-border": "#f8f4e9",
+      "marker-text": "#ffffff",
+      "marker-active": "#a47742",
+      "marker-halo": "#a4774233",
+      "tooltip-bg": "#292d27",
+      "tooltip-text": "#f7f1e4",
+      "search-bg": "#fffdf8",
+      "search-focus": "#9b825e",
+      "empty-text": "#898273",
+      "map-shadow": "#25251d18",
+      "control-shadow": "#25251d15",
+      "marker-shadow": "#17181255"
+    },
+    "darkColors": {
+      "ink": "#ece7d9",
+      "muted": "#aaa590",
+      "paper": "#1b201d",
+      "panel": "#252c27",
+      "line": "#40483f",
+      "accent": "#d1a96e",
+      "dark": "#151a17",
+      "dark-line": "#3f4a40",
+      "header-text": "#f1ecdf",
+      "header-muted": "#a8ad9e",
+      "header-mark": "#e1c47f",
+      "map-bg": "#525e55",
+      "map-surface": "#252c27ed",
+      "map-border": "#5b655b",
+      "map-text": "#e4dfd1",
+      "hover": "#343d35",
+      "filter-active-bg": "#414634",
+      "filter-active-line": "#758064",
+      "filter-active-text": "#e4dbb8",
+      "icon-bg": "#323a33",
+      "icon-border": "#566155",
+      "marker-bg": "#262f28",
+      "marker-border": "#ddd2b5",
+      "marker-text": "#f8f2e5",
+      "marker-active": "#ad7742",
+      "marker-halo": "#ad774255",
+      "tooltip-bg": "#121714",
+      "tooltip-text": "#f8f2e5",
+      "search-bg": "#2e352f",
+      "search-focus": "#c6a267",
+      "empty-text": "#b0ab99",
+      "map-shadow": "#00000066",
+      "control-shadow": "#00000044",
+      "marker-shadow": "#00000099"
+    }
+  },
+  "defaultMode": "all",
+  "modes": [
+    {
+      "id": "all",
+      "label": "Все значки",
+      "image": "assets/maps/geographical/map.png",
+      "tiles": {
+        "path": "assets/maps/geographical/tiles",
+        "tileSize": 512,
+        "levels": 5,
+        "sourceWidth": 20000,
+        "sourceHeight": 15000
+      }
+    },
+    {
+      "id": "geographical",
+      "label": "Географическая",
+      "image": "assets/maps/geographical/map.png",
+      "tiles": {
+        "path": "assets/maps/geographical/tiles",
+        "tileSize": 512,
+        "levels": 5,
+        "sourceWidth": 20000,
+        "sourceHeight": 15000
+      }
+    },
+    {
+      "id": "political",
+      "label": "Страны",
+      "image": "assets/maps/geographical/map.png",
+      "tiles": {
+        "path": "assets/maps/geographical/tiles",
+        "tileSize": 512,
+        "levels": 5,
+        "sourceWidth": 20000,
+        "sourceHeight": 15000
+      }
+    },
+    {
+      "id": "city",
+      "label": "Поселения",
+      "image": "assets/maps/geographical/map.png",
+      "tiles": {
+        "path": "assets/maps/geographical/tiles",
+        "tileSize": 512,
+        "levels": 5,
+        "sourceWidth": 20000,
+        "sourceHeight": 15000
+      }
+    },
+    {
+      "id": "religions",
+      "label": "Верования",
+      "image": "assets/maps/geographical/map.png",
+      "tiles": {
+        "path": "assets/maps/geographical/tiles",
+        "tileSize": 512,
+        "levels": 5,
+        "sourceWidth": 20000,
+        "sourceHeight": 15000
+      }
+    }
+  ]
+}

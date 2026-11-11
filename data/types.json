@@ -1,0 +1,82 @@
+{
+  "kingdom": {
+    "category": "Государство",
+    "modes": ["political"],
+    "icon": {
+      "symbol": "❖",
+      "color": "#fff3cf",
+      "backgroundColor": "#735820",
+      "scale": 1
+    }
+  },
+  "castle": {
+    "category": "Крепость",
+    "modes": ["city"],
+    "icon": {
+      "symbol": "■",
+      "color": "#ffeae7",
+      "backgroundColor": "#743d3b",
+      "scale": 0.8
+    }
+  },
+  "city": {
+    "category": "Поселение",
+    "modes": ["city"],
+    "icon": {
+      "symbol": "▲",
+      "color": "#e7fff5",
+      "backgroundColor": "#316b61",
+      "scale": 0.8
+    }
+  },
+  "small_city": {
+    "category": "Маслые поселение",
+    "modes": ["city"],
+    "icon": {
+      "symbol": "▲",
+      "color": "#e7fff5",
+      "backgroundColor": "#316b61",
+      "scale": 0.7
+    }
+  },
+  "places": {
+    "category": "Места",
+    "modes": ["geographical"],
+    "icon": {
+      "symbol": "◯",
+      "color": "#eaf5ff",
+      "backgroundColor": "#385e7a",
+      "scale": 1
+    }
+  },
+  "water": {
+    "category": "Реки и моря",
+    "modes": ["geographical"],
+    "icon": {
+      "symbol": "●",
+      "color": "#e3f8ff",
+      "backgroundColor": "#285f78",
+      "scale": 1
+    }
+  },
+  "ruin": {
+    "category": "Руины",
+    "modes": ["geographical"],
+    "icon": {
+      "symbol": "▼",
+      "color": "#f6f0e5",
+      "backgroundColor": "#625b52",
+      "scale": 0.7
+    }
+  },
+  "religions": {
+    "category": "Религии и мифы",
+    "modes": ["religions"],
+    "icon": {
+      "symbol": "✦",
+      "color": "#f8eafe",
+      "backgroundColor": "#603f70",
+      "scale": 1.2
+    }
+  }
+}

@@ -1,0 +1,742 @@
+[
+  {
+    "id": "korolevstvo-tordiyskikh-sversheniy",
+    "name": "Королевство Тордийских Свершений / Тордия",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/korolevstvo-tordiyskikh-sversheniy.md",
+    "coordinates": {
+      "x": 8668,
+      "y": 3388
+    }
+  },
+  {
+    "id": "korolevstvo-vechnosti",
+    "name": "Священное Королевство Вечности / Авролия",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/korolevstvo-vechnosti.md",
+    "coordinates": {
+      "x": 8636,
+      "y": 4102
+    }
+  },
+  {
+    "id": "dekodanovo-gertsogstvo",
+    "name": "Декоданово Герцогство",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/dekodanovo-gertsogstvo.md",
+    "coordinates": {
+      "x": 9290,
+      "y": 2780
+    }
+  },
+  {
+    "id": "molovo-gosudarstvo",
+    "name": "Молово Государство",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/molovo-gosudarstvo.md",
+    "coordinates": {
+      "x": 9648,
+      "y": 799
+    }
+  },
+  {
+    "id": "severnaya-tordiya",
+    "name": "Северная Тордия",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/severnaya-tordiya.md",
+    "coordinates": {
+      "x": 7956,
+      "y": 970
+    }
+  },
+  {
+    "id": "yoriya",
+    "name": "Йория",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/yoriya.md",
+    "coordinates": {
+      "x": 6666,
+      "y": 3958
+    }
+  },
+  {
+    "id": "tranzerveyskoe-korolevsto",
+    "name": "Транзервейское Королевсто",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/tranzerveyskoe-korolevsto.md",
+    "coordinates": {
+      "x": 9702,
+      "y": 3976
+    }
+  },
+  {
+    "id": "gorod-starshiy",
+    "name": "Город Старший",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/gorod-starshiy.md",
+    "coordinates": {
+      "x": 9576,
+      "y": 7696
+    }
+  },
+  {
+    "id": "gorod-mladshiy",
+    "name": "Город Младший",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/gorod-mladshiy.md",
+    "coordinates": {
+      "x": 8812,
+      "y": 7072
+    }
+  },
+  {
+    "id": "zindarau",
+    "name": "Зиндарау / Королевство Пламенеющих Песков / Люди под солнцем песков",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/zindarau.md",
+    "coordinates": {
+      "x": 10576,
+      "y": 2508
+    }
+  },
+  {
+    "id": "dalekaya-krepost",
+    "name": "Далёкая Крепость",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/dalekaya-krepost.md",
+    "coordinates": {
+      "x": 4922,
+      "y": 3430
+    }
+  },
+  {
+    "id": "syna-starshego-gorod",
+    "name": "Сына Старшего Город",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/syna-starshego-gorod.md",
+    "coordinates": {
+      "x": 6762,
+      "y": 4980
+    }
+  },
+  {
+    "id": "syna-srednego-gorod",
+    "name": "Сына Среднего Город",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/syna-srednego-gorod.md",
+    "coordinates": {
+      "x": 6508,
+      "y": 4614
+    }
+  },
+  {
+    "id": "syna-mladshego-gorod",
+    "name": "Сына Младшего Город",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/syna-mladshego-gorod.md",
+    "coordinates": {
+      "x": 6616,
+      "y": 4784
+    }
+  },
+  {
+    "id": "synovey-otreshennykh-goroda",
+    "name": "Сыновей Отрешённых Города",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/synovey-otreshennykh-goroda.md",
+    "coordinates": {
+      "x": 6270,
+      "y": 5100
+    }
+  },
+  {
+    "id": "syna-mertvogo-gorod",
+    "name": "Сына Мёртвого Город",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/syna-mertvogo-gorod.md",
+    "coordinates": {
+      "x": 6518,
+      "y": 4880
+    }
+  },
+  {
+    "id": "docheri-gorod",
+    "name": "Дочери Город",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/docheri-gorod.md",
+    "coordinates": {
+      "x": 6456,
+      "y": 4758
+    }
+  },
+  {
+    "id": "faodovo-tsvetene",
+    "name": "Фаодово Цветенье",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/faodovo-tsvetene.md",
+    "coordinates": {
+      "x": 9190,
+      "y": 3384
+    }
+  },
+  {
+    "id": "gertsogstvo-alani",
+    "name": "Герцогство Аланьи",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/gertsogstvo-alani.md",
+    "coordinates": {
+      "x": 9298,
+      "y": 3024
+    }
+  },
+  {
+    "id": "krooladiya",
+    "name": "Крооладия",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/krooladiya.md",
+    "coordinates": {
+      "x": 9172,
+      "y": 3564
+    }
+  },
+  {
+    "id": "votchina-gula",
+    "name": "Вотчина Гула",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-gula.md",
+    "coordinates": {
+      "x": 9390,
+      "y": 1940
+    }
+  },
+  {
+    "id": "votchina-sary",
+    "name": "Вотчина Сары",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-sary.md",
+    "coordinates": {
+      "x": 9264,
+      "y": 1308
+    }
+  },
+  {
+    "id": "votchina-kruma",
+    "name": "Вотчина Крума",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-kruma.md",
+    "coordinates": {
+      "x": 9270,
+      "y": 1492
+    }
+  },
+  {
+    "id": "votchina-toldara",
+    "name": "Вотчина Толдара",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-toldara.md",
+    "coordinates": {
+      "x": 9232,
+      "y": 1674
+    }
+  },
+  {
+    "id": "votchina-yumosa",
+    "name": "Вотчина Юмоса",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-yumosa.md",
+    "coordinates": {
+      "x": 9788,
+      "y": 2012
+    }
+  },
+  {
+    "id": "votchina-guttorma",
+    "name": "Вотчина Гутторма",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-guttorma.md",
+    "coordinates": {
+      "x": 10902,
+      "y": 1836
+    }
+  },
+  {
+    "id": "votchina-vagna",
+    "name": "Вотчина Вагна",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-vagna.md",
+    "coordinates": {
+      "x": 9418,
+      "y": 1712
+    }
+  },
+  {
+    "id": "votchina-karla",
+    "name": "Вотчина Карла",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-karla.md",
+    "coordinates": {
+      "x": 9558,
+      "y": 1794
+    }
+  },
+  {
+    "id": "grann",
+    "name": "Гранн",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/grann.md",
+    "coordinates": {
+      "x": 10276,
+      "y": 8792
+    }
+  },
+  {
+    "id": "liintrael",
+    "name": "Лиинтраэль",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/liintrael.md",
+    "coordinates": {
+      "x": 7958,
+      "y": 3548
+    }
+  },
+  {
+    "id": "yogan",
+    "name": "Йоган",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/yogan.md",
+    "coordinates": {
+      "x": 8716,
+      "y": 3482
+    }
+  },
+  {
+    "id": "flavianov-port",
+    "name": "Флавианов Порт",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/flavianov-port.md",
+    "coordinates": {
+      "x": 8448,
+      "y": 3650
+    }
+  },
+  {
+    "id": "gorod-rikkharda",
+    "name": "Город Рикхарда",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/gorod-rikkharda.md",
+    "coordinates": {
+      "x": 8698,
+      "y": 3584
+    }
+  },
+  {
+    "id": "nord",
+    "name": "Норд",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/nord.md",
+    "coordinates": {
+      "x": 8916,
+      "y": 3040
+    }
+  },
+  {
+    "id": "virra",
+    "name": "Вирра",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/virra.md",
+    "coordinates": {
+      "x": 8658,
+      "y": 3196
+    }
+  },
+  {
+    "id": "obyatoe-more",
+    "name": "Объятое Море",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/obyatoe-more.md",
+    "coordinates": {
+      "x": 5904,
+      "y": 1704
+    }
+  },
+  {
+    "id": "mramornoe-more",
+    "name": "Мраморное Море",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/mramornoe-more.md",
+    "coordinates": {
+      "x": 6952,
+      "y": 10072
+    }
+  },
+  {
+    "id": "vseobemlyushchiy-okean",
+    "name": "Всеобъемлющий Океан",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/vseobemlyushchiy-okean.md",
+    "coordinates": {
+      "x": 15008,
+      "y": 5096
+    }
+  },
+  {
+    "id": "taynoe-more",
+    "name": "Тайное Море",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/taynoe-more.md",
+    "coordinates": {
+      "x": 4172,
+      "y": 6444
+    }
+  },
+  {
+    "id": "more-lkhaara",
+    "name": "Море Лхаара",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/more-lkhaara.md",
+    "coordinates": {
+      "x": 10964,
+      "y": 9360
+    }
+  },
+  {
+    "id": "blednyy-zaliv",
+    "name": "Бледный залив",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/blednyy-zaliv.md",
+    "coordinates": {
+      "x": 9232,
+      "y": 888
+    }
+  },
+  {
+    "id": "murokkh",
+    "name": "Мурокх",
+    "type": "places",
+    "descriptionFile": "data/descriptions/places/murokkh.md",
+    "coordinates": {
+      "x": 3552,
+      "y": 8184
+    }
+  },
+  {
+    "id": "udel-gottloba-rogge",
+    "name": "Удел Готтлоба Рогге",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/udel-gottloba-rogge.md",
+    "coordinates": {
+      "x": 9003,
+      "y": 3571
+    }
+  },
+  {
+    "id": "byordov-gorod",
+    "name": "Бйордов Город",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/byordov-gorod.md",
+    "coordinates": {
+      "x": 8464,
+      "y": 3328
+    }
+  },
+  {
+    "id": "lkhaar",
+    "name": "Лхаар",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/lkhaar.md",
+    "coordinates": {
+      "x": 11664,
+      "y": 10248
+    }
+  },
+  {
+    "id": "gorod-starshiy-2",
+    "name": "Город Старший",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/gorod-starshiy-2.md",
+    "coordinates": {
+      "x": 9606,
+      "y": 7006
+    }
+  },
+  {
+    "id": "gorod-mladshiy-2",
+    "name": "Город Младший",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/gorod-mladshiy-2.md",
+    "coordinates": {
+      "x": 9378,
+      "y": 6714
+    }
+  },
+  {
+    "id": "molov-lednik",
+    "name": "Молов Ледник",
+    "type": "places",
+    "descriptionFile": "data/descriptions/places/molov-lednik.md",
+    "coordinates": {
+      "x": 9920,
+      "y": 68
+    }
+  },
+  {
+    "id": "ssurd",
+    "name": "Ссурд",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/ssurd.md",
+    "coordinates": {
+      "x": 6164,
+      "y": 4376
+    }
+  },
+  {
+    "id": "krepost-na-more",
+    "name": "Крепость на Море",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/krepost-na-more.md",
+    "coordinates": {
+      "x": 7134,
+      "y": 4454
+    }
+  },
+  {
+    "id": "votchina-dana",
+    "name": "Вотчина Дана",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-dana.md",
+    "coordinates": {
+      "x": 10818,
+      "y": 1826
+    }
+  },
+  {
+    "id": "zapadnyy-vseobemlyushchiy-okean",
+    "name": "Западный Всеобъемлющий Океан",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/zapadnyy-vseobemlyushchiy-okean.md",
+    "coordinates": {
+      "x": 1184,
+      "y": 10632
+    }
+  },
+  {
+    "id": "moriit",
+    "name": "Мориит",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/moriit.md",
+    "coordinates": {
+      "x": 9186,
+      "y": 3276
+    }
+  },
+  {
+    "id": "loktar",
+    "name": "Локтар",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/loktar.md",
+    "coordinates": {
+      "x": 9894,
+      "y": 3678
+    }
+  },
+  {
+    "id": "gorod-krepost-dolg",
+    "name": "Город-Крепость Долг",
+    "type": "ruin",
+    "descriptionFile": "data/descriptions/ruin/gorod-krepost-dolg.md",
+    "coordinates": {
+      "x": 8950,
+      "y": 4364
+    }
+  },
+  {
+    "id": "tverdoe-more",
+    "name": "Твёрдое Море",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/tverdoe-more.md",
+    "coordinates": {
+      "x": 9204,
+      "y": 116
+    }
+  },
+  {
+    "id": "karlikov-arkhipelag",
+    "name": "Карликов Архипелаг",
+    "type": "places",
+    "descriptionFile": "data/descriptions/places/karlikov-arkhipelag.md",
+    "coordinates": {
+      "x": 11316,
+      "y": 8624
+    }
+  },
+  {
+    "id": "knyazhestvo-siyanya",
+    "name": "Княжество Сиянья",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/knyazhestvo-siyanya.md",
+    "coordinates": {
+      "x": 8814,
+      "y": 856
+    }
+  },
+  {
+    "id": "gorodishche-ordena-konyu",
+    "name": "Городище Ордена Конъю",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/gorodishche-ordena-konyu.md",
+    "coordinates": {
+      "x": 9172,
+      "y": 4028
+    }
+  },
+  {
+    "id": "knyazhestvo-tvorenya",
+    "name": "Княжество Творенья",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/knyazhestvo-tvorenya.md",
+    "coordinates": {
+      "x": 8600,
+      "y": 800
+    }
+  },
+  {
+    "id": "zapadnaya-krepost-zafordiya",
+    "name": "Западная Крепость Зафьордия",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/zapadnaya-krepost-zafordiya.md",
+    "coordinates": {
+      "x": 7664,
+      "y": 4586
+    }
+  },
+  {
+    "id": "vostochnaya-krepost-zafordiya",
+    "name": "Восточная Крепость Зафьордия",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/vostochnaya-krepost-zafordiya.md",
+    "coordinates": {
+      "x": 8584,
+      "y": 4592
+    }
+  },
+  {
+    "id": "severnaya-krepost-zafordiya",
+    "name": "Северная Крепость Зафьордия",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/severnaya-krepost-zafordiya.md",
+    "coordinates": {
+      "x": 8056,
+      "y": 4482
+    }
+  },
+  {
+    "id": "yuzhnaya-krepost-zafordiya",
+    "name": "Южная Крепость Зафьордия",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/yuzhnaya-krepost-zafordiya.md",
+    "coordinates": {
+      "x": 7966,
+      "y": 4734
+    }
+  },
+  {
+    "id": "tranklatova-zemlya",
+    "name": "Транклатова Земля",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/tranklatova-zemlya.md",
+    "coordinates": {
+      "x": 8048,
+      "y": 4712
+    }
+  },
+  {
+    "id": "gorod-svidetel-vechnosti",
+    "name": "Город Свидетель Вечности",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/gorod-svidetel-vechnosti.md",
+    "coordinates": {
+      "x": 7646,
+      "y": 4168
+    }
+  },
+  {
+    "id": "neolitanskaya-respublika",
+    "name": "Неолитанская Республика",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/neolitanskaya-respublika.md",
+    "coordinates": {
+      "x": 9959,
+      "y": 3435
+    }
+  },
+  {
+    "id": "okriya",
+    "name": "Окрия",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/okriya.md",
+    "coordinates": {
+      "x": 9199,
+      "y": 2855
+    }
+  },
+  {
+    "id": "sentakrit",
+    "name": "Сентакрит",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/sentakrit.md",
+    "coordinates": {
+      "x": 9496,
+      "y": 9552
+    }
+  },
+  {
+    "id": "monastyr-udel-ditrikha-komitopula",
+    "name": "Монастырь / Удел Дитриха Комитопула",
+    "type": "small_city",
+    "descriptionFile": "data/descriptions/small_city/monastyr-udel-ditrikha-komitopula.md",
+    "coordinates": {
+      "x": 8918,
+      "y": 3330
+    }
+  },
+  {
+    "id": "barliyskaya-tayga",
+    "name": "Барлийская Тайга",
+    "type": "places",
+    "descriptionFile": "data/descriptions/places/barliyskaya-tayga.md",
+    "coordinates": {
+      "x": 8080,
+      "y": 660
+    }
+  },
+  {
+    "id": "yuzhnoe-more",
+    "name": "Южное Море",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/yuzhnoe-more.md",
+    "coordinates": {
+      "x": 7344,
+      "y": 5912
+    }
+  },
+  {
+    "id": "murokkho-kkhat",
+    "name": "Мурокхо-Кхат",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/murokkho-kkhat.md",
+    "coordinates": {
+      "x": 3812,
+      "y": 4748
+    }
+  },
+  {
+    "id": "lifi-initsa",
+    "name": "Лифи-Иница",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/lifi-initsa.md",
+    "coordinates": {
+      "x": 4384,
+      "y": 12328
+    }
+  }
+]

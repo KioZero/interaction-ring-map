@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#c8d2c8"/>
+<g fill="#e5dcc6" stroke="#7a705e" stroke-width="5">
+<path d="M110 250 L210 145 L360 170 L455 105 L620 150 L700 235 L655 340 L730 420 L650 530 L520 560 L460 690 L330 735 L210 650 L150 520 L75 420 Z" />
+<path d="M850 140 L990 95 L1110 150 L1230 120 L1400 220 L1460 360 L1380 470 L1430 590 L1320 740 L1160 780 L1050 690 L930 710 L820 600 L870 470 L790 340 Z" />
+<path d="M670 800 L760 760 L830 820 L810 910 L700 930 L630 870 Z" />
+</g>
+<g fill="none" stroke="#9b7747" stroke-width="10" stroke-linecap="round"><path d="M390 790 Q520 700 720 610 T1030 390 Q1130 360 1260 710"/><path d="M390 790 Q500 850 670 865"/><path d="M720 610 Q780 450 890 230"/></g>
+<g fill="none" stroke="#7d9ca0" stroke-width="7"><path d="M390 790 Q260 860 130 900"/><path d="M390 790 Q300 730 230 650"/></g>
+<g fill="#8d7049" font-family="Georgia" font-size="28"><text x="520" y="760">ЮЖНЫЙ ТОРГОВЫЙ ПУТЬ</text><text x="800" y="330">СЕВЕРНАЯ ДОРОГА</text></g>
+</svg>

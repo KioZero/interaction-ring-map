@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#c8d0c4"/>
+<g stroke="#6d6657" stroke-width="5" stroke-linejoin="round"><path d="M110 250 L210 145 L360 170 L455 105 L620 150 L700 235 L655 340 L730 420 L650 530 L520 560 L460 690 L330 735 L210 650 L150 520 L75 420Z" fill="#d9c5a0"/><path d="M850 140 L990 95 L1110 150 L1230 120 L1400 220 L1460 360 L1380 470 L1430 590 L1320 740 L1160 780 L1050 690 L930 710 L820 600 L870 470 L790 340Z" fill="#c5b9a0"/><path d="M670 800 L760 760 L830 820 L810 910 L700 930 L630 870Z" fill="#d8c9a9"/></g>
+<path d="M800 80 Q760 250 850 390 T820 650" fill="none" stroke="#8f544b" stroke-width="10" stroke-dasharray="18 10"/>
+<path d="M1080 120 Q1000 300 1100 460 T1250 740" fill="none" stroke="#617b58" stroke-width="10" stroke-dasharray="18 10"/>
+<g fill="none" stroke="#7b514a" stroke-width="4"><path d="M900 180 L1060 240 L1020 390 L850 430"/><path d="M1050 460 L1260 500 L1330 680"/></g>
+<g fill="#645a4b" font-family="Georgia" font-size="28"><text x="250" y="380">ЗАПАДНОЕ КОРОЛЕВСТВО</text><text x="1030" y="560">БАРОНСТВО ВАЛЬДЕН</text></g>
+</svg>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Мир Колец — интерактивная карта</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><img class="brand-mark" src="assets/icons/brand.svg" alt=""><span>МИР КОЛЕЦ</span></div>
+    <div class="top-actions"><button class="download-btn" id="download-locations" type="button">Скачать все точки</button><button class="download-btn" id="download-descriptions" type="button">Скачать все Markdown</button><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Тёмная тема</button></div>
+  </header>
+  <main class="main">
+    <section class="map-area">
+      <div id="map"></div>
+      <div class="mode-switch" id="mode-switch"></div>
+      <div class="map-tools">
+        <button class="tool-btn" id="add-point" title="Добавить точку" aria-label="Добавить точку" aria-pressed="false">✚</button>
+        <button class="tool-btn" id="zoom-in" title="Приблизить">+</button>
+        <button class="tool-btn" id="zoom-out" title="Отдалить">−</button>
+        <button class="tool-btn" id="reset-view" title="Показать всю карту">⌂</button>
+        <button class="tool-btn" id="show-selected" title="Показать выбранную точку на карте" aria-label="Показать выбранную точку на карте" disabled>⌖</button>
+      </div>
+      <div class="map-message" id="map-message" role="status" aria-live="polite" hidden></div>
+    </section>
+    <div class="sidebar-resizer" id="sidebar-resizer" role="separator" aria-label="Изменить ширину бокового меню" aria-orientation="vertical" aria-valuemin="280" aria-valuemax="640" aria-valuenow="360" tabindex="0"></div>
+    <aside class="sidebar">
+      <div class="search-wrap"><input class="search" id="search" placeholder="Найти объект..." autocomplete="off"></div>
+      <div class="filters" id="category-filters"></div>
+      <details class="marker-visibility">
+        <summary>Видимость значков</summary>
+        <label class="visibility-all"><input id="markers-visible" type="checkbox" checked><span>Все значки</span></label>
+        <div class="marker-category-list" id="marker-categories"></div>
+      </details>
+      <div class="object-list" id="object-list"></div>
+      <section class="detail" id="detail"></section>
+    </aside>
+  </main>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+</body></html>
