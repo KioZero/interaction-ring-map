@@ -12,6 +12,7 @@ python -m http.server 8000
 
 Затем откройте http://localhost:8000
 
+
 ## Где редактировать данные
 - `data/config.json` — размер карты, толщину рамки (`map.frameWidth`, в пикселях), режимы и цвета интерфейса.
 - `data/locations.json` — точки, их координаты, типы и пути к Markdown-описаниям.
