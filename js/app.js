@@ -1,5 +1,5 @@
 
-const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, filter:"all", query:"", markersVisible:true, hiddenCategories:new Set(), collapsedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", addPointMode:false, addingCoordinates:null, messageTimeout:null };
+const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, filter:"all", query:"", markersVisible:true, hiddenCategories:new Set(), collapsedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", addPointMode:false, coordinatePicking:false, editingCoordinates:null, addingCoordinates:null, messageTimeout:null };
 const $ = s => document.querySelector(s);
 
 async function loadData(){
@@ -49,6 +49,18 @@ function initMap(){
     smoothFactor:0
   }).addTo(state.map);
   state.map.on("click",event=>{
+    if(state.coordinatePicking){
+      const {width,height}=state.config.map;
+      state.editingCoordinates={
+        x:Math.round(Math.max(0,Math.min(width,event.latlng.lng))),
+        y:Math.round(Math.max(0,Math.min(height,height-event.latlng.lat)))
+      };
+      setCoordinatePickMode(false);
+      $("#edit-point-coordinates").textContent=`Новые координаты: X ${state.editingCoordinates.x}, Y ${state.editingCoordinates.y}`;
+      renderMarkers();
+      showMapMessage("Место выбрано. Нажмите «Сохранить изменения», чтобы переместить точку.");
+      return;
+    }
     if(state.addPointMode){
       const {width,height}=state.config.map;
       state.addingCoordinates={
@@ -190,8 +202,10 @@ function categories(){
 function renderMarkers(){
   for(const marker of state.markers.values())state.map.removeLayer(marker);
   state.markers.clear();
+  updateRandomLocationButton();
   state.locations.filter(loc=>visibleInMode(loc)&&state.markersVisible&&!state.hiddenCategories.has(categoryOf(loc))).forEach(loc=>{
-    const marker=L.marker([state.config.map.height-loc.coordinates.y,loc.coordinates.x],{icon:markerIcon(loc,loc.id===state.selected)}).addTo(state.map);
+    const coordinates=loc.id===state.selected&&state.editingCoordinates||loc.coordinates;
+    const marker=L.marker([state.config.map.height-coordinates.y,coordinates.x],{icon:markerIcon(loc,loc.id===state.selected)}).addTo(state.map);
     marker.bindTooltip(loc.name,{direction:"top",offset:[0,-12],className:"poi-tip"});
     marker.on("click",()=>selectLocation(loc.id));
     state.markers.set(loc.id,marker);
@@ -311,6 +325,8 @@ async function renderEditLocationForm(loc){
     return;
   }
   if(state.selected!==loc.id)return;
+  state.editingCoordinates=null;
+  setCoordinatePickMode(false);
   const originalType=loc.type;
   const types=Object.entries(state.types).map(([id,type])=>`<option value="${escapeHtml(id)}" ${id===loc.type?"selected":""}>${escapeHtml(type.category||id)}</option>`).join("");
   $("#detail").innerHTML=`
@@ -321,12 +337,23 @@ async function renderEditLocationForm(loc){
       <input id="edit-point-name" name="name" required maxlength="120" value="${escapeHtml(loc.name)}" autocomplete="off">
       <label for="edit-point-type">Тип</label>
       <select id="edit-point-type" name="type" required>${types}</select>
+      <p class="add-point-coordinates" id="edit-point-coordinates">Координаты: X ${loc.coordinates.x}, Y ${loc.coordinates.y}</p>
+      <button class="detail-action" id="pick-edit-coordinates" type="button">Выбрать место на карте</button>
       <label for="edit-point-description">Описание (Markdown)</label>
       <textarea id="edit-point-description" name="description" rows="8">${escapeHtml(markdown)}</textarea>
       <p class="form-error" id="edit-point-error" role="alert"></p>
       <button class="add-point-submit" type="submit">Сохранить изменения</button>
     </form>`;
-  $("#cancel-edit-location").addEventListener("click",()=>renderDetail(loc));
+  $("#cancel-edit-location").addEventListener("click",()=>{
+    setCoordinatePickMode(false);
+    state.editingCoordinates=null;
+    renderMarkers();
+    renderDetail(loc);
+  });
+  $("#pick-edit-coordinates").addEventListener("click",()=>{
+    setCoordinatePickMode(!state.coordinatePicking);
+    if(state.coordinatePicking)showMapMessage("Щёлкните по карте, чтобы выбрать новые координаты точки.");
+  });
   $("#edit-location-form").addEventListener("submit",event=>{
     event.preventDefault();
     const form=event.currentTarget,name=$("#edit-point-name").value.trim(),type=$("#edit-point-type").value;
@@ -336,6 +363,9 @@ async function renderEditLocationForm(loc){
     const previousDescriptionFile=loc.descriptionFile;
     loc.name=name;
     loc.type=type;
+    if(state.editingCoordinates)loc.coordinates={...state.editingCoordinates};
+    setCoordinatePickMode(false);
+    state.editingCoordinates=null;
     if(!loc.descriptionFile||type!==originalType){
       loc.descriptionFile=`data/descriptions/${type}/${loc.id}.md`;
     }
@@ -369,7 +399,16 @@ function deleteLocation(loc){
   renderList();
   showMapMessage("Точка удалена из текущего сеанса. Скачайте locations.json, чтобы сохранить изменение.");
 }
-function closeDetail(){state.selected=null;updateShowSelectedButton();$("#detail").classList.remove("visible");$("#object-list").hidden=false;renderMarkers();renderList();}
+function closeDetail(){setCoordinatePickMode(false);state.editingCoordinates=null;state.selected=null;updateShowSelectedButton();$("#detail").classList.remove("visible");$("#object-list").hidden=false;renderMarkers();renderList();}
+function setCoordinatePickMode(enabled){
+  state.coordinatePicking=enabled;
+  $("#map").classList.toggle("placing-point",enabled);
+  const button=$("#pick-edit-coordinates");
+  if(button){
+    button.textContent=enabled?"Отменить выбор места":"Выбрать место на карте";
+    button.setAttribute("aria-pressed",String(enabled));
+  }
+}
 function setPointPlacementMode(enabled){
   clearTimeout(state.messageTimeout);
   state.messageTimeout=null;
@@ -529,6 +568,20 @@ function updateShowSelectedButton(){
   const button=$("#show-selected");
   if(button)button.disabled=!state.selected;
 }
+function visibleLocations(){
+  return state.locations.filter(loc=>visibleInMode(loc)&&state.markersVisible&&!state.hiddenCategories.has(categoryOf(loc)));
+}
+function updateRandomLocationButton(){
+  const button=$("#random-location");
+  if(button)button.disabled=visibleLocations().length===0;
+}
+function showRandomLocation(){
+  const locations=visibleLocations();
+  if(!locations.length)return;
+  const location=locations[Math.floor(Math.random()*locations.length)];
+  selectLocation(location.id);
+  showSelectedLocation();
+}
 function showSelectedLocation(){
   const loc=state.locations.find(item=>item.id===state.selected);
   if(!loc||!state.map)return;
@@ -602,6 +655,7 @@ function setupUI(){
   $("#zoom-out").addEventListener("click",()=>state.map.zoomOut());
   $("#reset-view").addEventListener("click",()=>state.map.fitBounds([[0,0],[state.config.map.height,state.config.map.width]]));
   $("#show-selected").addEventListener("click",showSelectedLocation);
+  $("#random-location").addEventListener("click",showRandomLocation);
   $("#download-locations").addEventListener("click",downloadLocations);
   $("#download-descriptions").addEventListener("click",downloadAllDescriptions);
   $("#add-point").addEventListener("click",()=>{

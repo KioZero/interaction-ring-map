@@ -95,8 +95,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/zindarau.md",
     "coordinates": {
-      "x": 10576,
-      "y": 2508
+      "x": 4992,
+      "y": 7208
     }
   },
   {
@@ -281,7 +281,7 @@
   },
   {
     "id": "grann",
-    "name": "Гранн",
+    "name": "Граан",
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/grann.md",
     "coordinates": {
@@ -395,8 +395,8 @@
     "type": "water",
     "descriptionFile": "data/descriptions/water/more-lkhaara.md",
     "coordinates": {
-      "x": 10964,
-      "y": 9360
+      "x": 12448,
+      "y": 9912
     }
   },
   {
@@ -445,8 +445,8 @@
     "type": "city",
     "descriptionFile": "data/descriptions/city/lkhaar.md",
     "coordinates": {
-      "x": 11664,
-      "y": 10248
+      "x": 12240,
+      "y": 10920
     }
   },
   {
@@ -725,8 +725,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/murokkho-kkhat.md",
     "coordinates": {
-      "x": 3812,
-      "y": 4748
+      "x": 1792,
+      "y": 3160
     }
   },
   {
@@ -735,8 +735,228 @@
     "type": "castle",
     "descriptionFile": "data/descriptions/castle/lifi-initsa.md",
     "coordinates": {
-      "x": 4384,
-      "y": 12328
+      "x": 3008,
+      "y": 14200
+    }
+  },
+  {
+    "id": "bog-ispytaniy",
+    "name": "Бог Испытаний",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/bog-ispytaniy.md",
+    "coordinates": {
+      "x": 8096,
+      "y": 912
+    }
+  },
+  {
+    "id": "dvuedinstvo",
+    "name": "Двуединство",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/dvuedinstvo.md",
+    "coordinates": {
+      "x": 9360,
+      "y": 7272
+    }
+  },
+  {
+    "id": "tserkov-kolets",
+    "name": "Церковь Колец",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/tserkov-kolets.md",
+    "coordinates": {
+      "x": 8556,
+      "y": 4136
+    }
+  },
+  {
+    "id": "tserkov-svyatogo-vseobemlyushchego-boga",
+    "name": "Церковь Святого Всеобъемлющего Бога",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/tserkov-svyatogo-vseobemlyushchego-boga.md",
+    "coordinates": {
+      "x": 9188,
+      "y": 3212
+    }
+  },
+  {
+    "id": "otets-tordal",
+    "name": "Отец Тордал",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/otets-tordal.md",
+    "coordinates": {
+      "x": 6544,
+      "y": 4800
+    }
+  },
+  {
+    "id": "svyataya-mana",
+    "name": "Святая Мана",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/svyataya-mana.md",
+    "coordinates": {
+      "x": 9236,
+      "y": 3396
+    }
+  },
+  {
+    "id": "tir-zhitel-lesov",
+    "name": "Тир житель лесов",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/tir-zhitel-lesov.md",
+    "coordinates": {
+      "x": 9518,
+      "y": 3460
+    }
+  },
+  {
+    "id": "vechnost",
+    "name": "Вечность",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/vechnost.md",
+    "coordinates": {
+      "x": 8964,
+      "y": 3860
+    }
+  },
+  {
+    "id": "bog-pustyni",
+    "name": "Бог Пустыни",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/bog-pustyni.md",
+    "coordinates": {
+      "x": 4096,
+      "y": 7088
+    }
+  },
+  {
+    "id": "panteon-byorda",
+    "name": "Пантеон Бйорда",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/panteon-byorda.md",
+    "coordinates": {
+      "x": 8524,
+      "y": 3352
+    }
+  },
+  {
+    "id": "obshchestvo-pod-bogom-krovavykh-rek",
+    "name": "Бог Кровавой Реки",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/obshchestvo-pod-bogom-krovavykh-rek.md",
+    "coordinates": {
+      "x": 8376,
+      "y": 2176
+    }
+  },
+  {
+    "id": "deti-slepogo-boga",
+    "name": "Дети Слепого Бога",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/deti-slepogo-boga.md",
+    "coordinates": {
+      "x": 5968,
+      "y": 6016
+    }
+  },
+  {
+    "id": "ndlaan",
+    "name": "Ндлаань",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/ndlaan.md",
+    "coordinates": {
+      "x": 14896,
+      "y": 10968
+    }
+  },
+  {
+    "id": "tserkov-svyatogo-boga-solntsa",
+    "name": "Церковь Святого Бога Солнца",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/tserkov-svyatogo-boga-solntsa.md",
+    "coordinates": {
+      "x": 7080,
+      "y": 2520
+    }
+  },
+  {
+    "id": "lovriten",
+    "name": "Ловритен",
+    "type": "ruin",
+    "descriptionFile": "data/descriptions/ruin/lovriten.md",
+    "coordinates": {
+      "x": 7332,
+      "y": 3500
+    }
+  },
+  {
+    "id": "bagryanets",
+    "name": "Багрянец",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/bagryanets.md",
+    "coordinates": {
+      "x": 7344,
+      "y": 8000
+    }
+  },
+  {
+    "id": "ot-tleyushchego",
+    "name": "От тлеющего",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/ot-tleyushchego.md",
+    "coordinates": {
+      "x": 7640,
+      "y": 11768
+    }
+  },
+  {
+    "id": "solnechnyy-gorod",
+    "name": "Солнечный Город",
+    "type": "ruin",
+    "descriptionFile": "data/descriptions/ruin/solnechnyy-gorod.md",
+    "coordinates": {
+      "x": 8596,
+      "y": 5040
+    }
+  },
+  {
+    "id": "lovets",
+    "name": "Ловец",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/lovets.md",
+    "coordinates": {
+      "x": 6808,
+      "y": 9232
+    }
+  },
+  {
+    "id": "vaalan",
+    "name": "Ваалань",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/vaalan.md",
+    "coordinates": {
+      "x": 7200,
+      "y": 9040
+    }
+  },
+  {
+    "id": "vladyka-techenya",
+    "name": "Владыка Теченья",
+    "type": "religions",
+    "descriptionFile": "data/descriptions/religions/vladyka-techenya.md",
+    "coordinates": {
+      "x": 6884,
+      "y": 3976
+    }
+  },
+  {
+    "id": "limonnyy-gorod",
+    "name": "Лимонный город",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/limonnyy-gorod.md",
+    "coordinates": {
+      "x": 8464,
+      "y": 7020
     }
   }
 ]
