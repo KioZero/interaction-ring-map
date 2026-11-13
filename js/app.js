@@ -1,5 +1,5 @@
 
-const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, filter:"all", query:"", markersVisible:true, hiddenCategories:new Set(), collapsedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", addPointMode:false, coordinatePicking:false, editingCoordinates:null, addingCoordinates:null, messageTimeout:null };
+const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, filter:"all", query:"", hiddenCategories:new Set(), collapsedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", addPointMode:false, coordinatePicking:false, editingCoordinates:null, addingCoordinates:null, messageTimeout:null };
 const $ = s => document.querySelector(s);
 
 async function loadData(){
@@ -203,7 +203,7 @@ function renderMarkers(){
   for(const marker of state.markers.values())state.map.removeLayer(marker);
   state.markers.clear();
   updateRandomLocationButton();
-  state.locations.filter(loc=>visibleInMode(loc)&&state.markersVisible&&!state.hiddenCategories.has(categoryOf(loc))).forEach(loc=>{
+  state.locations.filter(loc=>visibleInMode(loc)&&!state.hiddenCategories.has(categoryOf(loc))).forEach(loc=>{
     const coordinates=loc.id===state.selected&&state.editingCoordinates||loc.coordinates;
     const marker=L.marker([state.config.map.height-coordinates.y,coordinates.x],{icon:markerIcon(loc,loc.id===state.selected)}).addTo(state.map);
     marker.bindTooltip(loc.name,{direction:"top",offset:[0,-12],className:"poi-tip"});
@@ -224,8 +224,16 @@ function renderCategoryFilters(){
   $("#marker-categories").querySelectorAll("[data-marker-category]").forEach(input=>input.addEventListener("change",()=>{
     if(input.checked)state.hiddenCategories.delete(input.dataset.markerCategory);
     else state.hiddenCategories.add(input.dataset.markerCategory);
+    updateAllMarkersCheckbox();
     renderMarkers();
   }));
+  updateAllMarkersCheckbox();
+}
+function updateAllMarkersCheckbox(){
+  const checkbox=$("#markers-visible"),available=categories();
+  const visibleCount=available.filter(category=>!state.hiddenCategories.has(category)).length;
+  checkbox.checked=available.length>0&&visibleCount===available.length;
+  checkbox.indeterminate=visibleCount>0&&visibleCount<available.length;
 }
 function renderList(){
   const q=state.query.trim().toLocaleLowerCase("ru");
@@ -569,7 +577,7 @@ function updateShowSelectedButton(){
   if(button)button.disabled=!state.selected;
 }
 function visibleLocations(){
-  return state.locations.filter(loc=>visibleInMode(loc)&&state.markersVisible&&!state.hiddenCategories.has(categoryOf(loc)));
+  return state.locations.filter(loc=>visibleInMode(loc)&&!state.hiddenCategories.has(categoryOf(loc)));
 }
 function updateRandomLocationButton(){
   const button=$("#random-location");
@@ -649,7 +657,16 @@ function setupUI(){
   $("#mode-switch").innerHTML=state.config.modes.map(m=>`<button class="mode-btn" data-mode="${escapeHtml(m.id)}">${escapeHtml(m.label)}</button>`).join("");
   document.querySelectorAll(".mode-btn").forEach(b=>b.addEventListener("click",()=>{closeDetail();showMode(b.dataset.mode);renderList();}));
   $("#search").addEventListener("input",e=>{state.query=e.target.value;renderList();});
-  $("#markers-visible").addEventListener("change",e=>{state.markersVisible=e.target.checked;renderMarkers();});
+  $("#markers-visible").addEventListener("change",event=>{
+    const available=categories();
+    if(event.target.checked)available.forEach(category=>state.hiddenCategories.delete(category));
+    else available.forEach(category=>state.hiddenCategories.add(category));
+    $("#marker-categories").querySelectorAll("[data-marker-category]").forEach(input=>{
+      input.checked=!state.hiddenCategories.has(input.dataset.markerCategory);
+    });
+    updateAllMarkersCheckbox();
+    renderMarkers();
+  });
   $("#detail").addEventListener("click",e=>{const link=e.target.closest("[data-location]");if(link)selectLocation(link.dataset.location);});
   $("#zoom-in").addEventListener("click",()=>state.map.zoomIn());
   $("#zoom-out").addEventListener("click",()=>state.map.zoomOut());

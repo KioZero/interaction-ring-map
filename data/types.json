@@ -78,5 +78,15 @@
       "backgroundColor": "#603f70",
       "scale": 1.2
     }
+  },
+  "historical_event": {
+    "category": "Историческое событие",
+    "modes": ["geographical"],
+    "icon": {
+      "symbol": "⌛",
+      "color": "#fff3cf",
+      "backgroundColor": "#785d2b",
+      "scale": 1
+    }
   }
 }
