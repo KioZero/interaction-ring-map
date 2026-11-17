@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import math
 import shutil
@@ -123,6 +124,7 @@ def main():
     min_zoom = config.get("map", {}).get("minZoom", -4)
     level_count = max(1, math.ceil(max(0, -min_zoom)) + 1)
     output_path = source_path.parent / "tiles"
+    cache_key = hashlib.sha256(source_path.read_bytes()).hexdigest()[:12]
     print(f"Создание тайлов для {source_path.name} ({source_path.stat().st_size / (1024 * 1024):.1f} МБ)...", flush=True)
     try:
         source_width, source_height = make_tiles(source_path, output_path, level_count)
@@ -136,6 +138,7 @@ def main():
         "levels": level_count,
         "sourceWidth": source_width,
         "sourceHeight": source_height,
+        "cacheKey": cache_key,
     }
     for mode in linked_modes:
         mode["tiles"] = tile_set

@@ -30,7 +30,7 @@
     }
   },
   "small_city": {
-    "category": "Маслые поселение",
+    "category": "Малые поселение",
     "modes": ["city"],
     "icon": {
       "symbol": "▲",

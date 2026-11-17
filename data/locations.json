@@ -75,8 +75,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/gorod-starshiy.md",
     "coordinates": {
-      "x": 9576,
-      "y": 7696
+      "x": 9128,
+      "y": 8040
     }
   },
   {
@@ -85,8 +85,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/gorod-mladshiy.md",
     "coordinates": {
-      "x": 8812,
-      "y": 7072
+      "x": 8220,
+      "y": 7460
     }
   },
   {
@@ -285,8 +285,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/grann.md",
     "coordinates": {
-      "x": 10276,
-      "y": 8792
+      "x": 9804,
+      "y": 8712
     }
   },
   {
@@ -395,8 +395,8 @@
     "type": "water",
     "descriptionFile": "data/descriptions/water/more-lkhaara.md",
     "coordinates": {
-      "x": 12448,
-      "y": 9912
+      "x": 11868,
+      "y": 9428
     }
   },
   {
@@ -445,8 +445,8 @@
     "type": "city",
     "descriptionFile": "data/descriptions/city/lkhaar.md",
     "coordinates": {
-      "x": 12240,
-      "y": 10920
+      "x": 11480,
+      "y": 10512
     }
   },
   {
@@ -455,8 +455,8 @@
     "type": "city",
     "descriptionFile": "data/descriptions/city/gorod-starshiy-2.md",
     "coordinates": {
-      "x": 9606,
-      "y": 7006
+      "x": 9160,
+      "y": 7124
     }
   },
   {
@@ -465,8 +465,8 @@
     "type": "city",
     "descriptionFile": "data/descriptions/city/gorod-mladshiy-2.md",
     "coordinates": {
-      "x": 9378,
-      "y": 6714
+      "x": 8928,
+      "y": 6868
     }
   },
   {
@@ -565,8 +565,8 @@
     "type": "places",
     "descriptionFile": "data/descriptions/places/karlikov-arkhipelag.md",
     "coordinates": {
-      "x": 11316,
-      "y": 8624
+      "x": 10620,
+      "y": 8564
     }
   },
   {
@@ -685,8 +685,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/sentakrit.md",
     "coordinates": {
-      "x": 9496,
-      "y": 9552
+      "x": 9096,
+      "y": 9328
     }
   },
   {
@@ -755,8 +755,8 @@
     "type": "religions",
     "descriptionFile": "data/descriptions/religions/dvuedinstvo.md",
     "coordinates": {
-      "x": 9360,
-      "y": 7272
+      "x": 8624,
+      "y": 7952
     }
   },
   {
@@ -825,8 +825,8 @@
     "type": "religions",
     "descriptionFile": "data/descriptions/religions/bog-pustyni.md",
     "coordinates": {
-      "x": 4096,
-      "y": 7088
+      "x": 4160,
+      "y": 7728
     }
   },
   {
@@ -895,8 +895,8 @@
     "type": "religions",
     "descriptionFile": "data/descriptions/religions/bagryanets.md",
     "coordinates": {
-      "x": 7344,
-      "y": 8000
+      "x": 6916,
+      "y": 7848
     }
   },
   {
@@ -905,8 +905,8 @@
     "type": "religions",
     "descriptionFile": "data/descriptions/religions/ot-tleyushchego.md",
     "coordinates": {
-      "x": 7640,
-      "y": 11768
+      "x": 8992,
+      "y": 11304
     }
   },
   {
@@ -925,8 +925,8 @@
     "type": "religions",
     "descriptionFile": "data/descriptions/religions/lovets.md",
     "coordinates": {
-      "x": 6808,
-      "y": 9232
+      "x": 7028,
+      "y": 9024
     }
   },
   {
@@ -935,8 +935,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/vaalan.md",
     "coordinates": {
-      "x": 7200,
-      "y": 9040
+      "x": 6776,
+      "y": 8568
     }
   },
   {
@@ -955,8 +955,8 @@
     "type": "city",
     "descriptionFile": "data/descriptions/city/limonnyy-gorod.md",
     "coordinates": {
-      "x": 8464,
-      "y": 7020
+      "x": 7808,
+      "y": 7252
     }
   }
 ]

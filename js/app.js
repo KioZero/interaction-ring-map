@@ -1,10 +1,10 @@
 
-const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, filter:"all", query:"", hiddenCategories:new Set(), collapsedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", addPointMode:false, coordinatePicking:false, editingCoordinates:null, addingCoordinates:null, messageTimeout:null };
+const state = { config:null, locations:[], map:null, overlay:null, frameLayer:null, tileOverlays:new Map(), tileNeeded:new Set(), tileVisible:new Set(), tiledMode:null, tileRenderScheduled:false, mapZooming:false, markers:new Map(), mode:null, selected:null, query:"", hiddenCategories:new Set(), expandedGroups:new Set(), descriptionCache:new Map(), themeMode:"light", developerMode:false, logoToggleArmed:false, logoToggleTimeout:null, addPointMode:false, coordinatePicking:false, editingCoordinates:null, addingCoordinates:null, messageTimeout:null };
 const $ = s => document.querySelector(s);
 
 async function loadData(){
   const [config, locations, types] = await Promise.all([
-    fetch("data/config.json").then(r=>{if(!r.ok)throw Error("Не удалось загрузить config.json");return r.json()}),
+    fetch("data/config.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("Не удалось загрузить config.json");return r.json()}),
     fetch("data/locations.json").then(r=>{if(!r.ok)throw Error("Не удалось загрузить locations.json");return r.json()}),
     fetch("data/types.json").then(r=>{if(!r.ok)throw Error("Не удалось загрузить types.json");return r.json()})
   ]);
@@ -22,7 +22,11 @@ function applyTheme(mode=state.themeMode){
   document.documentElement.dataset.theme=mode;
   const button=$("#theme-toggle");
   if(button){
-    button.textContent=mode==="dark"?"Светлая тема":"Тёмная тема";
+    button.innerHTML=mode==="dark"
+      ?'<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>'
+      :'<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.2 15.3A8.5 8.5 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z"></path></svg>';
+    button.setAttribute("aria-label",mode==="dark"?"Переключить на светлую тему":"Переключить на тёмную тему");
+    button.title=mode==="dark"?"Переключить на светлую тему":"Переключить на тёмную тему";
     button.setAttribute("aria-pressed",String(mode==="dark"));
   }
 }
@@ -140,7 +144,8 @@ function renderVisibleTiles(){
       const tileTop=row*tileWorldHeight,tileLeft=column*tileWorldWidth;
       const tileBottom=Math.min(worldHeight,tileTop+tileWorldHeight);
       const tileRight=Math.min(worldWidth,tileLeft+tileWorldWidth);
-      const path=`${tileSet.path}/${level}/${column}_${row}.${tileSet.format||"webp"}`;
+      const version=tileSet.cacheKey?`?v=${encodeURIComponent(tileSet.cacheKey)}`:"";
+      const path=`${tileSet.path}/${level}/${column}_${row}.${tileSet.format||"webp"}${version}`;
       const layer=L.imageOverlay(path,[[worldHeight-tileBottom,tileLeft],[worldHeight-tileTop,tileRight]],{interactive:false,opacity:0});
       const tile={layer,ready:false,failed:false};
       layer.once("load",()=>{tile.ready=true;finishTileUpdate();});
@@ -211,21 +216,15 @@ function renderMarkers(){
     state.markers.set(loc.id,marker);
   });
 }
-function renderCategoryFilters(){
+function renderVisibilityCategories(){
   const available=categories();
-  if(state.filter!=="all"&&!available.includes(state.filter))state.filter="all";
-  $("#category-filters").innerHTML=[`<button class="filter ${state.filter==="all"?"active":""}" data-filter="all">Все</button>`,...available.map(category=>`<button class="filter ${state.filter===category?"active":""}" data-filter="${escapeHtml(category)}">${escapeHtml(category)}</button>`)].join("");
-  $("#category-filters").querySelectorAll(".filter").forEach(button=>button.addEventListener("click",()=>{
-    state.filter=button.dataset.filter;
-    $("#category-filters").querySelectorAll(".filter").forEach(item=>item.classList.toggle("active",item===button));
-    renderList();
-  }));
   $("#marker-categories").innerHTML=available.map(category=>`<label class="visibility-category"><input type="checkbox" data-marker-category="${escapeHtml(category)}" ${state.hiddenCategories.has(category)?"":"checked"}><span>${escapeHtml(category)}</span></label>`).join("");
   $("#marker-categories").querySelectorAll("[data-marker-category]").forEach(input=>input.addEventListener("change",()=>{
     if(input.checked)state.hiddenCategories.delete(input.dataset.markerCategory);
     else state.hiddenCategories.add(input.dataset.markerCategory);
     updateAllMarkersCheckbox();
     renderMarkers();
+    renderList();
   }));
   updateAllMarkersCheckbox();
 }
@@ -237,8 +236,7 @@ function updateAllMarkersCheckbox(){
 }
 function renderList(){
   const q=state.query.trim().toLocaleLowerCase("ru");
-  const items=state.locations.filter(visibleInMode)
-    .filter(loc=>state.filter==="all"||categoryOf(loc)===state.filter)
+  const items=state.locations.filter(loc=>visibleInMode(loc)&&!state.hiddenCategories.has(categoryOf(loc)))
     .filter(loc=>!q||(loc.name+" "+categoryOf(loc)+" "+(state.descriptionCache.get(loc.descriptionFile)||"")).toLocaleLowerCase("ru").includes(q));
   const groups=new Map();
   for(const loc of items){
@@ -247,7 +245,7 @@ function renderList(){
     groups.get(category).push(loc);
   }
   $("#object-list").innerHTML=groups.size?[...groups].sort(([a],[b])=>a.localeCompare(b,"ru")).map(([category,locations])=>`
-    <details class="object-group" data-group="${escapeHtml(category)}" ${state.collapsedGroups.has(category)?"":"open"}>
+    <details class="object-group" data-group="${escapeHtml(category)}" ${state.expandedGroups.has(category)?"open":""}>
       <summary class="object-group-title"><span>${escapeHtml(category)}</span><span class="object-group-count">${locations.length}</span></summary>
       ${locations.sort((a,b)=>a.name.localeCompare(b.name,"ru")).map(loc=>`
         <button class="object-row ${loc.id===state.selected?"selected":""}" data-id="${escapeHtml(loc.id)}">
@@ -257,8 +255,8 @@ function renderList(){
     </details>`).join(""):`<div class="empty">Объекты не найдены</div>`;
   const objectList=$("#object-list");
   objectList.querySelectorAll(".object-group").forEach(group=>group.addEventListener("toggle",()=>{
-    if(group.open)state.collapsedGroups.delete(group.dataset.group);
-    else state.collapsedGroups.add(group.dataset.group);
+    if(group.open)state.expandedGroups.add(group.dataset.group);
+    else state.expandedGroups.delete(group.dataset.group);
   }));
   objectList.querySelectorAll(".object-row").forEach(button=>button.addEventListener("click",()=>selectLocation(button.dataset.id)));
 }
@@ -312,19 +310,20 @@ async function renderDetail(loc){
     <div class="detail-top"><button class="back-btn" id="back-list">← Все объекты</button></div>
     <h2>${escapeHtml(loc.name)}</h2>
     <div class="detail-category">${escapeHtml(categoryOf(loc))}</div>
-    <div class="detail-actions">
+    ${state.developerMode?`<div class="detail-actions">
       <button class="detail-action" id="edit-location" type="button">Редактировать</button>
       ${loc.descriptionFile?'<button class="detail-action" id="download-description" type="button">Скачать Markdown</button>':""}
       <button class="detail-action danger" id="delete-location" type="button">Удалить точку</button>
-    </div>
+    </div>`:""}
     <div class="detail-description markdown-content">${renderMarkdown(description||"Описание пока не добавлено.")}</div>
     <p class="detail-status" id="detail-status" role="status" aria-live="polite"></p>`;
   $("#back-list").addEventListener("click",closeDetail);
-  $("#edit-location").addEventListener("click",()=>renderEditLocationForm(loc));
+  $("#edit-location")?.addEventListener("click",()=>renderEditLocationForm(loc));
   $("#download-description")?.addEventListener("click",()=>downloadDescription(loc));
-  $("#delete-location").addEventListener("click",()=>deleteLocation(loc));
+  $("#delete-location")?.addEventListener("click",()=>deleteLocation(loc));
 }
 async function renderEditLocationForm(loc){
+  if(!state.developerMode)return;
   let markdown;
   try{
     markdown=await loadDescription(loc);
@@ -379,12 +378,13 @@ async function renderEditLocationForm(loc){
     }
     if(previousDescriptionFile&&previousDescriptionFile!==loc.descriptionFile)state.descriptionCache.delete(previousDescriptionFile);
     if(loc.descriptionFile)state.descriptionCache.set(loc.descriptionFile,description);
-    renderCategoryFilters();
+    renderVisibilityCategories();
     selectLocation(loc.id);
     showMapMessage("Изменения точки сохранены в текущем сеансе. Скачайте locations.json, чтобы сохранить их.");
   });
 }
 async function downloadDescription(loc){
+  if(!state.developerMode)return;
   try{
     const markdown=await loadDescription(loc);
     const filename=loc.descriptionFile.split("/").pop();
@@ -395,6 +395,7 @@ async function downloadDescription(loc){
   }
 }
 function deleteLocation(loc){
+  if(!state.developerMode)return;
   if(!window.confirm(`Удалить точку «${loc.name}»? Изменение сохранится после скачивания общего списка.`))return;
   state.locations=state.locations.filter(location=>location.id!==loc.id);
   if(loc.descriptionFile)state.descriptionCache.delete(loc.descriptionFile);
@@ -402,7 +403,7 @@ function deleteLocation(loc){
   updateShowSelectedButton();
   $("#detail").classList.remove("visible");
   $("#object-list").hidden=false;
-  renderCategoryFilters();
+  renderVisibilityCategories();
   renderMarkers();
   renderList();
   showMapMessage("Точка удалена из текущего сеанса. Скачайте locations.json, чтобы сохранить изменение.");
@@ -440,6 +441,7 @@ function makeLocationId(name){
   return id;
 }
 function renderAddLocationForm(){
+  if(!state.developerMode)return;
   const {x,y}=state.addingCoordinates;
   const types=Object.entries(state.types).map(([id,type])=>`<option value="${escapeHtml(id)}">${escapeHtml(type.category||id)}</option>`).join("");
   $("#object-list").hidden=true;
@@ -484,16 +486,18 @@ function renderAddLocationForm(){
     const location={id,name,type,descriptionFile,coordinates:{x,y}};
     state.locations.push(location);
     state.descriptionCache.set(descriptionFile,markdown);
-    renderCategoryFilters();
+    renderVisibilityCategories();
     selectLocation(id);
     showMapMessage("Точка добавлена. Markdown и общий список можно скачать кнопками в карточке и шапке.");
   });
   nameInput.focus();
 }
 function downloadLocations(){
+  if(!state.developerMode)return;
   downloadFile("locations.json",`${JSON.stringify(state.locations,null,2)}\n`,"application/json;charset=utf-8");
 }
 async function downloadAllDescriptions(){
+  if(!state.developerMode)return;
   const button=$("#download-descriptions");
   button.disabled=true;
   try{
@@ -571,6 +575,31 @@ function showMapMessage(text){
   message.textContent=text;
   message.hidden=false;
   state.messageTimeout=setTimeout(()=>{message.hidden=true;},7000);
+}
+function armDeveloperModeToggle(){
+  state.logoToggleArmed=true;
+  $(".brand").classList.add("toggle-armed");
+  clearTimeout(state.logoToggleTimeout);
+  showMapMessage("Сочетание принято. Нажмите на логотип в течение 7 секунд.");
+  state.logoToggleTimeout=setTimeout(()=>{
+    state.logoToggleArmed=false;
+    $(".brand").classList.remove("toggle-armed");
+  },7000);
+}
+function setDeveloperMode(enabled){
+  state.developerMode=enabled;
+  document.body.classList.toggle("developer-mode",enabled);
+  if(!enabled){
+    if(state.addPointMode)setPointPlacementMode(false);
+    if(state.coordinatePicking)setCoordinatePickMode(false);
+    state.editingCoordinates=null;
+    if($("#edit-location-form")||$("#add-point-form"))closeDetail();
+  }
+  if(state.selected){
+    const location=state.locations.find(item=>item.id===state.selected);
+    if(location&&!$("#edit-location-form"))renderDetail(location);
+  }
+  showMapMessage(enabled?"Режим разработчика включён.":"Режим разработчика выключен.");
 }
 function updateShowSelectedButton(){
   const button=$("#show-selected");
@@ -653,7 +682,22 @@ function setupUI(){
   });
   const logo=$(".brand-mark");
   if(logo&&state.config.branding?.logo)logo.src=state.config.branding.logo;
-  renderCategoryFilters();
+  $(".brand").addEventListener("click",()=>{
+    if(!state.logoToggleArmed)return;
+    clearTimeout(state.logoToggleTimeout);
+    state.logoToggleArmed=false;
+    $(".brand").classList.remove("toggle-armed");
+    setDeveloperMode(!state.developerMode);
+  });
+  document.addEventListener("keydown",event=>{
+    const target=event.target;
+    if(event.ctrlKey&&event.altKey&&event.shiftKey&&event.code==="KeyD"&&
+      !(target instanceof HTMLElement&&(target.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))){
+      event.preventDefault();
+      armDeveloperModeToggle();
+    }
+  });
+  renderVisibilityCategories();
   $("#mode-switch").innerHTML=state.config.modes.map(m=>`<button class="mode-btn" data-mode="${escapeHtml(m.id)}">${escapeHtml(m.label)}</button>`).join("");
   document.querySelectorAll(".mode-btn").forEach(b=>b.addEventListener("click",()=>{closeDetail();showMode(b.dataset.mode);renderList();}));
   $("#search").addEventListener("input",e=>{state.query=e.target.value;renderList();});
@@ -666,6 +710,7 @@ function setupUI(){
     });
     updateAllMarkersCheckbox();
     renderMarkers();
+    renderList();
   });
   $("#detail").addEventListener("click",e=>{const link=e.target.closest("[data-location]");if(link)selectLocation(link.dataset.location);});
   $("#zoom-in").addEventListener("click",()=>state.map.zoomIn());
@@ -676,6 +721,7 @@ function setupUI(){
   $("#download-locations").addEventListener("click",downloadLocations);
   $("#download-descriptions").addEventListener("click",downloadAllDescriptions);
   $("#add-point").addEventListener("click",()=>{
+    if(!state.developerMode)return;
     if(state.addPointMode){setPointPlacementMode(false);return;}
     if(state.selected||$("#add-point-form"))closeDetail();
     setPointPlacementMode(true);
