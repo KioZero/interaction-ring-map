@@ -88,5 +88,15 @@
       "backgroundColor": "#785d2b",
       "scale": 1
     }
+  },
+  "peoples": {
+    "category": "Народы",
+    "modes": ["geographical"],
+    "icon": {
+      "symbol": "♟",
+      "color": "#f4eaff",
+      "backgroundColor": "#594477",
+      "scale": 1
+    }
   }
 }

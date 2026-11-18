@@ -231,7 +231,7 @@
   },
   {
     "id": "votchina-toldara",
-    "name": "Вотчина Толдара",
+    "name": "Вотчина Валдра",
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/votchina-toldara.md",
     "coordinates": {
@@ -245,8 +245,8 @@
     "type": "kingdom",
     "descriptionFile": "data/descriptions/kingdom/votchina-yumosa.md",
     "coordinates": {
-      "x": 9788,
-      "y": 2012
+      "x": 9066,
+      "y": 694
     }
   },
   {
@@ -957,6 +957,146 @@
     "coordinates": {
       "x": 7808,
       "y": 7252
+    }
+  },
+  {
+    "id": "korolevstvo-paltsev",
+    "name": "Королевство Пальцев",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/korolevstvo-paltsev.md",
+    "coordinates": {
+      "x": 10848,
+      "y": 2516
+    }
+  },
+  {
+    "id": "votchina-khelgi",
+    "name": "Вотчина Хельги",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/votchina-khelgi.md",
+    "coordinates": {
+      "x": 9008,
+      "y": 800
+    }
+  },
+  {
+    "id": "krepost-vosmerykh",
+    "name": "Крепость Восьмерых",
+    "type": "castle",
+    "descriptionFile": "data/descriptions/castle/krepost-vosmerykh.md",
+    "coordinates": {
+      "x": 8712,
+      "y": 3696
+    }
+  },
+  {
+    "id": "dkharakshana",
+    "name": "Дхаракшана",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/dkharakshana.md",
+    "coordinates": {
+      "x": 8552,
+      "y": 10520
+    }
+  },
+  {
+    "id": "ganatkharu",
+    "name": "Ганатхару",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/ganatkharu.md",
+    "coordinates": {
+      "x": 7976,
+      "y": 11576
+    }
+  },
+  {
+    "id": "rakshar",
+    "name": "Ракшар",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/rakshar.md",
+    "coordinates": {
+      "x": 8116,
+      "y": 12080
+    }
+  },
+  {
+    "id": "varuna",
+    "name": "Сатра",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/varuna.md",
+    "coordinates": {
+      "x": 7716,
+      "y": 12096
+    }
+  },
+  {
+    "id": "tarn",
+    "name": "Тарн",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/tarn.md",
+    "coordinates": {
+      "x": 8316,
+      "y": 11700
+    }
+  },
+  {
+    "id": "zaliv-varuna",
+    "name": "Залив Варуна",
+    "type": "water",
+    "descriptionFile": "data/descriptions/water/zaliv-varuna.md",
+    "coordinates": {
+      "x": 8192,
+      "y": 11920
+    }
+  },
+  {
+    "id": "ramati",
+    "name": "Рамати",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/ramati.md",
+    "coordinates": {
+      "x": 9072,
+      "y": 11168
+    }
+  },
+  {
+    "id": "kshatravana",
+    "name": "Кшатравана",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/kshatravana.md",
+    "coordinates": {
+      "x": 8448,
+      "y": 11996
+    }
+  },
+  {
+    "id": "tarn-surana",
+    "name": "Пхарат-Сурана",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/tarn-surana.md",
+    "coordinates": {
+      "x": 8972,
+      "y": 11362
+    }
+  },
+  {
+    "id": "bkhara-taruna",
+    "name": "Бхара-Таруна",
+    "type": "kingdom",
+    "descriptionFile": "data/descriptions/kingdom/bkhara-taruna.md",
+    "coordinates": {
+      "x": 8392,
+      "y": 11416
+    }
+  },
+  {
+    "id": "kkhravan",
+    "name": "Кхраван",
+    "type": "city",
+    "descriptionFile": "data/descriptions/city/kkhravan.md",
+    "coordinates": {
+      "x": 8563,
+      "y": 10560
     }
   }
 ]
